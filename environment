@@ -1,0 +1,19 @@
+#!/bin/sh
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
+
+source $HOME/.gvm/scripts/gvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+source $HOME/.sdkman/bin/sdkman-init.sh
+
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
